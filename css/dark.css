@@ -125,6 +125,9 @@
     background-color: rgba(0,0,0,0.8) !important;
     color: #eee !important;
   }
+  #current-status:hover .label {
+    color: white;
+  }
 
   #theme-switcher a {
     color: #333;
@@ -134,6 +137,9 @@
   }
   #theme-switcher a:hover {
     color: #4c93cb;
+  }
+  #theme-switcher .label {
+    color: white;
   }
 
   /* 🕸💍 */

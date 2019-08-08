@@ -16,13 +16,22 @@ if (isset($_COOKIE['theme'])) {
 
 <div id="theme-switcher">
   <a href="#" onclick="setThemePreference('default'); return null;">
-    <div><i class="fa fa-globe-w <?= $theme == 'default' ? 'active' : '' ?>"></i></div>
+    <div>
+      <i class="fa fa-globe-w <?= $theme == 'default' ? 'active' : '' ?>"></i>
+      <span class="label">OS theme</span>
+    </div>
   </a>
   <a href="#" onclick="setThemePreference('dark'); return null;">
-    <div><i class="fa fa-moon <?= $theme == 'dark' ? 'active' : '' ?>"></i></div>
+    <div>
+      <i class="fa fa-moon <?= $theme == 'dark' ? 'active' : '' ?>"></i>
+      <span class="label">Dark theme</span>
+    </div>
   </a>
   <a href="#" onclick="setThemePreference('light'); return null;">
-    <div><i class="fa fa-sun <?= $theme == 'light' ? 'active' : '' ?>"></i></div>
+    <div>
+      <i class="fa fa-sun <?= $theme == 'light' ? 'active' : '' ?>"></i>
+      <span class="label">Light theme</span>
+    </div>
   </a>
 </div>
 
@@ -69,10 +78,22 @@ if ($_SERVER['REQUEST_URI'] != "/now") {
         }
     }
 ?>
-    <div id="battery"><i class="fa <?= $battery_icon ?> <?= $status['battery_state'] ?>"></i></div>
-    <div id="wifi"><i class="fa fa-wifi <?= $wifi_state ?>"></i></div>
-    <div id="motion"><i class="fa <?= $motion_icon ?>"></i></div>
-    <div id="location"><i class="fa fa-map-marker"></i></div>
+    <div id="battery">
+        <i class="fa <?= $battery_icon ?> <?= $status['battery_state'] ?>"></i>
+        <span class="label">My iPhone battery</span>
+    </div>
+    <div id="wifi">
+        <i class="fa fa-wifi <?= $wifi_state ?>"></i>
+        <span class="label">My iPhone Wi-Fi</span>
+    </div>
+    <div id="motion">
+        <i class="fa <?= $motion_icon ?>"></i>
+        <span class="label">Current motion</span>
+    </div>
+    <div id="location">
+        <i class="fa fa-map-marker"></i>
+        <span class="label">Click for current location</span>
+    </div>
 </div>
 
 <?php

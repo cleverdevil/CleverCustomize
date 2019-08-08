@@ -150,6 +150,16 @@ iframe.instagram-media {
   text-align: center;
   z-index: 10000;
 }
+#current-status .label {
+  display: none;
+  color: #333;
+}
+#current-status:hover {
+  text-align: left;
+}
+#current-status:hover .label {
+  display: initial;
+}
 
 .charging, .full {
   color: #2ADD00;
@@ -186,16 +196,28 @@ div.🕸💍 {
   z-index: 10000;
 }
 
+#theme-switcher:hover {
+  text-align: left;
+}
+
 #theme-switcher a {
   color: #999;
+  text-decoration: none;
 }
 #theme-switcher a .active {
   color: black;
 }
-#theme-switcher a:hover {
+#theme-switcher a:hover, #theme-switcher a:hover .label {
   color: #4c93cb;
 }
 
+#theme-switcher .label {
+  display: none;
+  color: #333;
+}
+#theme-switcher:hover .label {
+  display: initial;
+}
 
 
 /**
