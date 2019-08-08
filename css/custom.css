@@ -140,6 +140,7 @@ iframe.instagram-media {
  * Current status and other customizations
  */
 #current-status {
+  width: 3.5em;
   cursor: pointer;
   position: fixed;
   bottom: 1em;
@@ -149,6 +150,10 @@ iframe.instagram-media {
   opacity: 0.85;
   text-align: center;
   z-index: 10000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  transition: width 0.5s;
 }
 #current-status .label {
   display: none;
@@ -156,6 +161,8 @@ iframe.instagram-media {
 }
 #current-status:hover {
   text-align: left;
+  width: 14em;
+  transition: width 1s;
 }
 #current-status:hover .label {
   display: initial;
@@ -185,6 +192,7 @@ div.🕸💍 {
 }
 
 #theme-switcher {
+  width: 3.5em;
   cursor: pointer;
   position: fixed;
   bottom: 11em;
@@ -194,10 +202,16 @@ div.🕸💍 {
   opacity: 0.85;
   text-align: center;
   z-index: 10000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  transition: width 0.5s;
 }
 
 #theme-switcher:hover {
   text-align: left;
+  width: 10em;
+  transition: width 1s;
 }
 
 #theme-switcher a {
