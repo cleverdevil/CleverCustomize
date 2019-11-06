@@ -7,6 +7,8 @@ if (isset($_COOKIE['theme'])) {
 
 ?>
 
+<div style="width:100%; height:100%; background-image:url(https://cleverdevil.io/file/ea148c8ee95a255990e82cbf2c46ae3a); background-size:cover; position: fixed; z-index:-1; top: 0;"></div>
+
 <script type="text/javascript">
   function setThemePreference(preference) {
     Cookies.set('theme', preference);
@@ -111,3 +113,4 @@ if ($_SERVER['REQUEST_URI'] != "/now") {
     include("templates/default/shell/toolbar/main.tpl.php");
 
 ?>
+

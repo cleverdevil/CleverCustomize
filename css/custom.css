@@ -1,4 +1,12 @@
 /**
+ * Cherwell overrides
+ */
+body {
+  /* hide background image to work around iOS Safari not supporting background-attach */
+  background-image: none !important;
+}
+
+/**
  * Nav customizations
  */
 nav {
