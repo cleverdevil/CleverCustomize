@@ -164,6 +164,13 @@
     background: transparent;
     color: #eee !important;
   }
+  
+  .following-overview {
+    background-color: rgba(0,0,0,0.8) !important;
+    color: #eee !important;
+    padding: 1em 2em;
+  }
+
   .channel {
     background-color: rgba(0,0,0,0.8) !important;
     color: #eee !important;
