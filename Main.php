@@ -16,6 +16,8 @@
                 \Idno\Core\site()->routes()->addRoute('/archive/([0-9]+)/([0-9]+)/([0-9]+)/?', '\IdnoPlugins\CleverCustomize\Pages\Archive');
                 \Idno\Core\site()->routes()->addRoute('/archive/([0-9]+)/([0-9]+)/?', '\IdnoPlugins\CleverCustomize\Pages\Archive');
                 \Idno\Core\site()->routes()->addRoute('/archive', '\IdnoPlugins\CleverCustomize\Pages\ArchiveIndex');
+                \Idno\Core\site()->routes()->addRoute('/health', '\IdnoPlugins\CleverCustomize\Pages\Health');
+                \Idno\Core\site()->routes()->addRoute('/health/([0-9]+)/([0-9]+)/([0-9]+)/?', '\IdnoPlugins\CleverCustomize\Pages\Health');
                 \Idno\Core\site()->routes()->addRoute('/overview', '\IdnoPlugins\CleverCustomize\Pages\Overview');
                 \Idno\Core\site()->routes()->addRoute('/now', '\IdnoPlugins\CleverCustomize\Pages\Now');
                 \Idno\Core\site()->routes()->addRoute('/map', '\IdnoPlugins\CleverCustomize\Pages\Map');
@@ -59,6 +61,7 @@
                         
                         // Look up current weather conditions and add as an annotation based upon my
                         // current location.
+                        /*
                         $darksky_api_key = \Idno\Core\Idno::site()->config()->darksky_api_key;
                         
                         $weather_url = "https://api.darksky.net/forecast/" . $darksky_api_key . "/";
@@ -84,6 +87,7 @@
                                 false
                             );
                         }
+                         */
                     }
                 });
                 
