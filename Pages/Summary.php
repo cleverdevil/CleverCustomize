@@ -5,6 +5,7 @@
         use Idno\Core\Webmention;
         use Idno\Entities\Notification;
         use Idno\Entities\User;
+        use Idno\Core\Webservice;
 
         class Summary extends \Idno\Common\Page
         {
@@ -34,6 +35,8 @@
                 $search['publish_status'] = 'published';
 
                 /* identify target date range */
+                date_default_timezone_set('America/Los_Angeles');
+                
                 $year = date('Y');
                 $month = '01';
                 $day = null;
@@ -78,6 +81,12 @@
                         $this->setLastModifiedHeader(reset($feed)->updated);
                     }
                 }
+                    
+                // fetch monthly health summary
+                $base = \Idno\Core\Idno::site()->config()->healthlake_url;
+                $response = Webservice::get($base . '/summary/' . $year . '-' . $month);
+                $health_data_found = $response['response'] == 200;
+                $health_data = json_decode($response['content']);
 
                 // collect by type
                 $entities = array();
@@ -106,7 +115,9 @@
                         'date'         => $start,
                         'month'        => $month,
                         'year'         => $year,
-                        'description'  => $range
+                        'description'  => $range,
+                        'health_data'  => (array) $health_data,
+                        'health_found' => $health_data_found
                     ))->draw('pages/summary'),
 
                 ))->drawPage();

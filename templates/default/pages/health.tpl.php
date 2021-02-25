@@ -7,60 +7,6 @@ $st_percent = round(($data->apple_stand_hour->qty / 12) * 100, 0);
 ?>
 
     <style type="text/css">
-    @-webkit-keyframes RingProgress {
-      0% {
-        stroke-dasharray: 0 100;
-      }
-    }
-
-    @keyframes RingProgress {
-      0% {
-        stroke-dasharray: 0 100;
-      }
-    }
-    .ActivityRings {
-      height: 100%;
-      width: 100%;
-    }
-    .ActivityRings .ring {
-      -webkit-transform-origin: 50%;
-              transform-origin: 50%;
-    }
-    .ActivityRings .completed {
-      -webkit-animation: RingProgress 1s ease-in-out forwards;
-              animation: RingProgress 1s ease-in-out forwards;
-      stroke-linecap: round;
-    }
-    .ActivityRings circle {
-      fill: none;
-    }
-
-    .ring-move .background {
-      stroke: rgba(197, 63, 61, 0.2);
-    }
-    .ring-move .completed {
-      stroke: #c53f3d;
-    }
-
-    .ring-exercise .background {
-      stroke: rgba(148, 213, 90, 0.2);
-    }
-    .ring-exercise .completed {
-      stroke: #94d55a;
-    }
-
-    .ring-stand .background {
-      stroke: rgba(112, 190, 215, 0.2);
-    }
-    .ring-stand .completed {
-      stroke: #70bed7;
-    }
-    .ring-container {
-        background: black;
-        width: 120px;
-        height: 120px;
-    }
-    
     /* Updates */
 
     div.health-widget {

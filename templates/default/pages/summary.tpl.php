@@ -14,7 +14,17 @@ foreach (array_keys($entities) as $category) {
         <?= count($entities[$category]) ?> <?= ($category == "Photos") ? "Photo albums" : $category ?>
     </li>
 <?php
-}    
+} 
+
+if ($health_found) {
+?>
+    <li>
+        <i class="fa fa-heartbeat"></i>
+        <?= count((array) $health_data) ?>
+        Health
+    </li>
+<?php
+}
 ?>
 </ul>
 
@@ -146,6 +156,53 @@ if (array_key_exists("Photos", $entities)) {
 }
 ?>
 </section>
+
+
+<!-- health records -->
+<?php
+if ($health_found) {
+?>
+<section id="health">
+    <h2><i class="fa fa-heartbeat"></i> Health</h2>
+    
+    <?php
+    foreach (array_keys($health_data) as $month_day) {
+
+        $data = $health_data[$month_day];
+
+        $mv_percent = round(($data->active_energy->qty / 500) * 100, 0);
+        $ex_percent = round(($data->apple_exercise_time->qty / 30) * 100, 0);
+        $st_percent = round(($data->apple_stand_hour->qty / 12) * 100, 0);
+        
+        $target_date = str_replace('-', '/', $month_day);
+    ?>
+        <div class="activity-ring">
+          <a href="/health/<?= $target_date ?>">
+          <div class="ring-container">
+            <svg class="ActivityRings" viewBox='0 0 37 37'>
+              <g class="ring ring-move" style="transform: scale(1) rotate(-90deg);">
+                  <circle stroke-width="3" r="15.915" cx="50%" cy="50%" class="background" />
+                  <circle stroke-width="3" r="15.915" cx="50%" cy="50%" class="completed" stroke-dasharray="<?= $mv_percent ?>, 100" />
+              </g>
+              <g class="ring ring-exercise" style="transform: scale(0.75) rotate(-90deg);">
+                  <circle stroke-width="4" r="15.915" cx="50%" cy="50%" class="background" />
+                  <circle stroke-width="4" r="15.915" cx="50%" cy="50%" class="completed" stroke-dasharray="<?= $ex_percent ?>, 100" />
+              </g>
+              <g class="ring ring-stand" style="transform: scale(0.5) rotate(-90deg);">
+                  <circle stroke-width="6" r="15.915" cx="50%" cy="50%" class="background" />
+                  <circle stroke-width="6" r="15.915" cx="50%" cy="50%" class="completed" stroke-dasharray="<?= $st_percent ?>, 100" />
+              </g>
+            </svg>
+          </div>
+          </a>
+        </div>
+    <?php
+    }
+    ?>
+</section>
+<?php
+}
+?>
 
 <!-- checkins -->
 <?php
@@ -376,6 +433,7 @@ if (array_key_exists("Bookmarked pages", $entities)) {
 <?php
 }
 ?>
+
 
 
 </div>
