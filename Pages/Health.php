@@ -38,24 +38,31 @@
                 $next = strtotime(date('Y-m-d', $target) . ' + 1 day');
                 $prev = strtotime(date('Y-m-d', $target) . ' - 1 day');
 
-                // send a request to our health endpoint
+                // send a request to our health endpoint to grab
                 $base = \Idno\Core\Idno::site()->config()->healthlake_url;
+                
                 $response = Webservice::get($base . '/detail/' . date('Y-m-d', $target));
-
                 $data_found = $response['response'] == 200;
-
                 $data = json_decode($response['content']);
+                
+                $response = Webservice::get($base . '/global');
+                $global_data = array();
+                if ($response['response'] == 200) {
+                    $global_data = json_decode($response['content']);
+                }
+
                 $t = \Idno\Core\Idno::site()->template();
                 $t->__(array(
                     'title'       => $title,
                     'description' => $description,
                     'content'     => array('all'),
                     'body'        => $t->__(array(
-                        'data_found' => $data_found,
-                        'date'       => $target,
-                        'next'       => $next,
-                        'prev'       => $prev,
-                        'data'       => $data
+                        'data_found'  => $data_found,
+                        'date'        => $target,
+                        'next'        => $next,
+                        'prev'        => $prev,
+                        'data'        => $data,
+                        'global_data' => $global_data
                     ))->draw('pages/health'),
 
                 ))->drawPage();
