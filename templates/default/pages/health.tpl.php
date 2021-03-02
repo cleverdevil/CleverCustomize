@@ -75,7 +75,7 @@ function genRow($title, $label, $min, $avg, $max) {
       flex-basis: 100%;
       flex: 1;
     }
-    
+
     div.activity-ring {
       padding-left: 1em;
     }
@@ -153,6 +153,27 @@ function genRow($title, $label, $min, $avg, $max) {
     .max {
         float: right;
     }
+
+    @media only screen and (min-width: 428px) and (max-width: 767px) {
+        div.health-widget, div.health-history {
+            max-width: 400px;
+            min-width: 400px;
+        }
+        div.ring-container {
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+        }
+        div.activity-ring table {
+            width: 320px;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        .row {
+            flex-direction: column;
+        }
+    }
+
 </style>
 
 <!-- daily health metrics -->
